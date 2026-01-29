@@ -6,148 +6,205 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    :root {
-      --bg-color: #000;
-      --text-color: #FFD700;
-      --link-color: #FFA500;
-      --container-bg: #111;
-      --table-head-bg: #222;
-      --table-row-hover: #333;
-      --input-bg: #222;
-      --input-border: #444;
-      --btn-bg: #FFA500;
-      --btn-color: black;
-      --btn-hover: #FFD700;
-    }
-    #modoClaro:checked ~ .container {
-      --bg-color: #fff;
-      --text-color: #000;
-      --link-color: #0055aa;
-      --container-bg: #eee;
-      --table-head-bg: #ccc;
-      --table-row-hover: #ddd;
-      --input-bg: #fff;
-      --input-border: #999;
-      --btn-bg: #0055aa;
-      --btn-color: white;
-      --btn-hover: #0077cc;
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 40px;
+      color: #222;
     }
 
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-color); color: var(--text-color); margin:0; padding:40px; transition: all 0.3s; }
-    .container { max-width: 1000px; margin:auto; background: var(--container-bg); padding:40px; border-radius:8px; transition: all 0.3s; }
-    h1, h2 { color: var(--text-color); }
-    ul { line-height: 1.8; }
-    a { color: var(--link-color); text-decoration:none; font-weight:500; } a:hover { text-decoration:underline; }
-    table { width:100%; border-collapse: collapse; margin-top:20px; color: var(--text-color); }
-    th, td { padding:10px; border-bottom:1px solid #444; text-align:left; }
-    th { background: var(--table-head-bg); }
-    tr:hover { background-color: var(--table-row-hover); }
-    .note, .index { background: var(--table-head-bg); padding:15px; border-left:4px solid var(--link-color); margin-top:20px; }
-    .index { margin-bottom:30px; }
-    .index ul { list-style:none; padding-left:0; }
-    .index li { margin-bottom:8px; }
-    .btn { background: var(--btn-bg); border:none; color: var(--btn-color); padding:8px 12px; margin-top:10px; cursor:pointer; border-radius:4px; font-weight:bold; transition: all 0.2s; }
-    .btn:hover { background: var(--btn-hover); }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 40px;
+      border-radius: 8px;
+    }
 
-    /* Mostrar/Ocultar tablas solo con CSS */
-    input[type=checkbox].toggle-table { display:none; }
-    input[type=checkbox].toggle-table:checked + table { display: table; }
-    input[type=checkbox].toggle-table + table { display: none; margin-top:10px; }
+    h1 { margin-top: 0; }
+    h2 { margin-top: 40px; }
 
-    .word-cloud { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
-    .word-cloud span { font-weight:bold; color: var(--text-color); }
+    .word-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .word-cloud span {
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      display: none; /* Oculta por defecto */
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0f0;
+    }
+
+    .btn {
+      background: #4b4bff;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .btn:hover {
+      background: #2a2aff;
+    }
   </style>
+
+  <script>
+    function toggleTable(id) {
+      const table = document.getElementById(id);
+      table.style.display = table.style.display === 'table' ? 'none' : 'table';
+    }
+  </script>
 </head>
+
 <body>
+  <div class="container">
+    <h1>Análisis de titulares: Andina vs La República</h1>
 
-<input type="checkbox" id="modoClaro">
-<label for="modoClaro" class="btn">Cambiar modo Claro/Oscuro</label>
+    <!-- Nube de palabras Andina -->
+    <h2>Nube de palabras – Andina</h2>
+    <div class="word-cloud">
+      <span style="font-size: 30px;">presidente</span>
+      <span style="font-size: 30px;">que</span>
+      <span style="font-size: 25px;">contra</span>
+      <span style="font-size: 25px;">gabinete</span>
+      <span style="font-size: 25px;">2026</span>
+      <span style="font-size: 25px;">elecciones</span>
+      <span style="font-size: 20px;">sorteo</span>
+      <span style="font-size: 20px;">moreno</span>
+      <span style="font-size: 20px;">monstruo</span>
+      <span style="font-size: 20px;">erick</span>
+      <span style="font-size: 20px;">alias</span>
+      <span style="font-size: 20px;">jerí</span>
+      <span style="font-size: 15px;">espá</span>
+      <span style="font-size: 15px;">carlos</span>
+      <span style="font-size: 15px;">vacancia</span>
+      <span style="font-size: 15px;">censura</span>
+      <span style="font-size: 15px;">cabe</span>
+      <span style="font-size: 15px;">jefe</span>
+      <span style="font-size: 15px;">cinco</span>
+      <span style="font-size: 15px;">propone</span>
+    </div>
 
-<div class="container">
-  <h1>Análisis de titulares: Andina vs La República</h1>
+    <button class="btn" onclick="toggleTable('tablaAndina')">Mostrar/Ocultar tabla Andina</button>
 
-  <div class="index">
-    <strong>Índice</strong>
-    <ul>
-      <li><a href="#descarga">Descarga de datos (CSV)</a></li>
-      <li><a href="#andina">Andina</a></li>
-      <li><a href="#larepublica">La República</a></li>
-    </ul>
+    <table id="tablaAndina">
+      <thead>
+        <tr>
+          <th>Titular</th>
+          <th>URL</th>
+          <th>Longitud (caracteres)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Jefe del Gabinete: no cabe una censura ni una vacancia contra el presidente Jerí</td><td>https://andina.pe/agencia/noticia-jefe-del-gabinete-no-cabe-una-censura-ni-una-vacancia-contra-presidente-jeri-1061034.aspx</td><td>80</td></tr>
+        <tr><td>Elecciones 2026: Carlos Espá propone crear cinco penales de máxima seguridad</td><td>https://andina.pe/agencia/noticia-elecciones-2026-carlos-espa-propone-crear-cinco-penales-maxima-seguridad-1061084.aspx</td><td>76</td></tr>
+        <tr><td>PJ dispone 36 meses de prisión preventiva para Erick Moreno, alias "El Monstruo"</td><td>https://andina.pe/agencia/noticia-pj-dispone-36-meses-prision-preventiva-para-erick-moreno-alias-monstruo-1061085.aspx</td><td>80</td></tr>
+        <tr><td>Cancillería confirmó la liberación de dos peruanos que estaban detenidos en Venezuela</td><td>https://andina.pe/agencia/noticia-cancilleria-confirmo-liberacion-dos-peruanos-estaban-detenidos-venezuela-1061075.aspx</td><td>85</td></tr>
+        <tr><td>Ministro de Justicia: “No existen fronteras que protejan a quienes atentan contra la paz"</td><td>https://andina.pe/agencia/noticia-ministro-justicia-no-existen-fronteras-protejan-a-quienes-atentan-contra-paz-1061071.aspx</td><td>89</td></tr>
+        <tr><td>Ernesto Álvarez: estado de emergencia está dando resultados y tiene que ampliarse en Lima</td><td>https://andina.pe/agencia/noticia-ernesto-alvarez-estado-emergencia-esta-dando-resultados-y-tiene-ampliarse-lima-1061057.aspx</td><td>89</td></tr>
+        <tr><td>Presidente José Jerí monitorea traslado de Erick Moreno, alias "El Monstruo"</td><td>https://andina.pe/agencia/noticia-presidente-jose-jeri-monitorea-traslado-erick-moreno-alias-monstruo-1061069.aspx</td><td>76</td></tr>
+        <tr><td>Elecciones 2026: conoce cómo se realizará el sorteo nacional de miembros de mesa</td><td>https://andina.pe/agencia/noticia-elecciones-2026-conoce-como-se-realizara-sorteo-nacional-miembros-mesa-1060929.aspx</td><td>80</td></tr>
+        <tr><td>JNE realizó sorteo para designar a tercer miembro de primeros 28 JEE</td><td>https://andina.pe/agencia/noticia-jne-realizo-sorteo-para-designar-a-tercer-miembro-primeros-28-jee-1061054.aspx</td><td>68</td></tr>
+        <tr><td>Presidente del Consejo de Ministros resalta solidez del Gabinete y descarta alejamiento</td><td>https://andina.pe/agencia/noticia-presidente-del-consejo-ministros-resalta-solidez-del-gabinete-y-descarta-alejamiento-1061046.aspx</td><td>87</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Nube de palabras La República -->
+    <h2>Nube de palabras – La República</h2>
+    <div class="word-cloud">
+      <span style="font-size: 30px;">jerí</span>
+      <span style="font-size: 25px;">josé</span>
+      <span style="font-size: 25px;">que</span>
+      <span style="font-size: 22px;">sobre</span>
+      <span style="font-size: 22px;">2026</span>
+      <span style="font-size: 22px;">contra</span>
+      <span style="font-size: 20px;">judicial</span>
+      <span style="font-size: 20px;">poder</span>
+      <span style="font-size: 18px;">lópez</span>
+      <span style="font-size: 18px;">jee</span>
+      <span style="font-size: 18px;">aliaga</span>
+      <span style="font-size: 18px;">elecciones</span>
+      <span style="font-size: 16px;">gobierno</span>
+      <span style="font-size: 16px;">como</span>
+      <span style="font-size: 16px;">meses</span>
+      <span style="font-size: 16px;">electoral</span>
+      <span style="font-size: 16px;">tras</span>
+      <span style="font-size: 16px;">marcha</span>
+      <span style="font-size: 16px;">yang</span>
+      <span style="font-size: 16px;">jne</span>
+    </div>
+
+    <button class="btn" onclick="toggleTable('tablaRepublica')">Mostrar/Ocultar tabla La República</button>
+
+    <table id="tablaRepublica">
+      <thead>
+        <tr>
+          <th>Titular</th>
+          <th>Sección</th>
+          <th>URL</th>
+          <th>Fecha</th>
+          <th>Longitud (caracteres)</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tbody>
+<tr><td>JNJ apunta contra el Poder Judicial: da 5 días a Janet Tello para que responda por supuesta omisión en su declaración jurada</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/jnj-da-un-plazo-de-5-dias-a-janet-tello-para-que-responda-por-supuesta-omision-en-su-declaracion-jurada-hnews-1817073</td><td>2026-01-27T20:09:32-05:00</td><td>124</td></tr>
+<tr><td>Colegio de Abogados de Lima suspende a Patricia Benavides Vargas como abogada por seis meses</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/patricia-benavides-colegio-de-abogados-de-lima-suspende-a-fiscal-suprema-como-abogada-por-seis-meses-hnews-1288548</td><td>2026-01-28T13:56:53-05:00</td><td>92</td></tr>
+<tr><td>Marcha 28 de enero: víctimas de las protestas caminan hacia Lima para exigir justicia</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/marcha-de-sacrificio-uyariy-victimas-de-las-protestas-caminan-hacia-lima-para-exigir-justicia-este-28-de-enero-hnews-486486</td><td>2026-01-27T16:59:04-05:00</td><td>85</td></tr>
+<tr><td>Rechazan pedido de Zhihua Yang para aplazar entrega de hidroeléctrica hasta 2029</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/rechazan-pedido-de-zhihua-yang-para-aplazar-entrega-de-hidroelectrica-hasta-2029-jose-jeri-hidroelectrica-pachachaca-2-hnews-1843398</td><td>2026-01-27T22:41:06-05:00</td><td>80</td></tr>
+<tr><td>Estudiante confronta a Jerí por Pronabec: "No es hora de estar comiendo chifa"</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/estudiante-confronta-a-jose-jeri-por-demoras-en-resultados-de-pronabec-no-es-hora-de-estar-comiendo-chifa-hnews-1272753</td><td>2026-01-27T20:27:23-05:00</td><td>78</td></tr>
+<tr><td>Marcha 28 de enero EN VIVO: ciudadanos de Ayacucho, Generación Z y colectivos exigen justicia</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/marcha-28-de-enero-en-vivo-ciudadanos-de-ayacucho-generacion-z-y-colectivos-exigen-justicia-hnews-2263884</td><td>2026-01-28T20:26:40-05:00</td><td>93</td></tr>
+<tr><td>Nombre oficial del 2026: "Año de la Esperanza y el Fortalecimiento de la Democracia"</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/23/gobierno-de-peru-oficializa-nombre-del-ano-2026-como-ano-de-la-esperanza-y-el-fortalecimiento-de-la-democracia-hnews-1661819</td><td>2026-01-28T20:00:00-05:00</td><td>84</td></tr>
+<tr><td>Mientras Oxenford anuncia derrota de Keiko, Cornejo ve a López-Chau como el "único que ha levantado cabeza" dentro de la izquierda</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/mientras-oxenford-anuncia-derrota-de-keiko-cornejo-ve-a-lopezchau-como-el-unico-que-ha-levantado-cabeza-dentro-de-la-izquierda-hnews-2500820</td><td>2026-01-28T19:37:59-05:00</td><td>130</td></tr>
+<tr><td>Presidenta del Poder Judicial: "Los jueces no se rinden ante amenazas, imputaciones infundadas o agresiones"</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/presidenta-del-poder-judicial-lanza-contundente-mensaje-destaco-la-resiliencia-de-jueces-que-no-se-rinden-ante-amenazas-hnews-2708916</td><td>2026-01-28T19:18:32-05:00</td><td>108</td></tr>
+<tr><td>Carlín sobre respaldo a López Aliaga: “Lima vive en una burbuja y aún no supera el trauma de haber tenido a un serrano como presidente”</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/carlin-sobre-respaldo-a-lopez-aliaga-lima-vive-en-una-burbuja-y-aun-no-supera-el-trauma-de-haber-tenido-a-un-serrano-como-presidente-hnews-1572620</td><td>2026-01-28T18:11:12-05:00</td><td>135</td></tr>
+<tr><td>Pablo Sánchez critica decisión de la JNJ tras no ser ratificado: "Los motivos no son jurídicos"</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/pablo-sanchez-critica-decision-de-la-jnj-tras-no-ser-ratificado-los-motivos-no-son-juridicos-hnews-351652</td><td>2026-01-28T17:53:50-05:00</td><td>95</td></tr>
+<tr><td>Los temas que responderá José Jerí ante el fiscal de la Nación por las reuniones con Zhihua Yang y Ji Wu Xiaodong</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/jose-jeri-los-temas-que-respondera-el-presidente-ante-el-fiscal-de-la-nacion-por-las-reuniones-con-zhihua-yang-y-ji-wu-xiaodong-hnews-2454256</td><td>2026-01-28T17:42:26-05:00</td><td>113</td></tr>
+<tr><td>Renovación Popular realizó pintas en muros a favor de Rafael López Aliaga sin autorización, alerta JEE</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/renovacion-popular-realizo-pintas-en-muros-a-favor-de-lopez-aliaga-sin-autorizacion-alerta-jee-hnews-1357888</td><td>2026-01-28T15:54:45-05:00</td><td>102</td></tr>
+<tr><td>¿Serás miembro de mesa? ONPE confirma pago de S/165 y fecha del sorteo oficial</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/seras-miembro-de-mesa-onpe-confirma-pago-de-s165-y-fecha-del-sorteo-oficial-hnews-2266208</td><td>2026-01-28T15:35:52-05:00</td><td>78</td></tr>
+<tr><td>"Potencia mundial es poner agua en los Cerros": así respondió Norma Yarrow sobre la gestión de López Aliaga</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/norma-yarrow-responde-sobre-gestion-de-rafael-lopez-aliaga-potencia-mundial-es-poner-agua-en-los-cerros-hnews-2603468</td><td>2026-01-28T14:01:41-05:00</td><td>107</td></tr>
+<tr><td>Rosa María Palacios sobre Jerí: “Por eso le han puesto Bukele de Temu, porque es falsísimo”</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/rosa-maria-palacios-sobre-jeri-por-eso-le-han-puesto-bukele-de-temu-porque-es-falsisimo-hnews-1649004</td><td>2026-01-28T14:00:47-05:00</td><td>91</td></tr>
+<tr><td>Delia Espinoza: Poder Judicial admite a trámite querella contra Fernando Rospigliosi por difamación agravada</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/delia-espinoza-poder-judicial-admite-a-tramite-querella-contra-fernando-rospigliosi-por-difamacion-hnews-921256</td><td>2026-01-28T13:26:45-05:00</td><td>108</td></tr>
+<tr><td>Poder Judicial autoriza inicio del juicio oral contra Alejandro Toledo por caso Interoceánica Sur-Tramo 4</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/alejandro-toledo-poder-judicial-autoriza-inicio-del-juicio-oral-por-caso-interoceanica-surtramo-4-hnews-310268</td><td>2026-01-28T11:28:28-05:00</td><td>105</td></tr>
+<tr><td>Alférez y 2 suboficiales PNP van a prisión por robo agravado e intervención irregular a extranjeros</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/alferez-y-2-suboficiales-pnp-van-a-prision-por-robo-agravado-e-intervencion-irregular-a-extranjeros-corrupcion-hnews-903280</td><td>2026-01-28T10:49:38-05:00</td><td>99</td></tr>
+<tr><td>Cárceles: ¿Cuarteles del crimen o solo un engaño del Gobierno de José Jerí?</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/carceles-centros-de-planificacion-de-crimenes-o-solo-un-engano-del-gobierno-hnews-1798888</td><td>2026-01-28T10:46:45-05:00</td><td>75</td></tr>
+<tr><td>Vocero de APP cuestiona a su bancada por no apoyar vacancia contra Jerí: "Están haciendo lo que les da la gana"</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/28/vocero-de-app-cuestiona-a-su-bancada-por-no-apoyar-vacancia-contra-jose-jeri-estan-haciendo-lo-que-les-da-la-gana-cesar-acuna-hnews-1993992</td><td>2026-01-28T09:56:35-05:00</td><td>111</td></tr>
+<tr><td>Elecciones 2026: JNE designa a miembros titulares del Tribunal de Honor del Pacto Ético Electoral</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/elecciones-2026-jne-designa-a-miembros-titulares-del-tribunal-de-honor-del-pacto-etico-electoral-hnews-2470284</td><td>2026-01-28T05:22:00-05:00</td><td>97</td></tr>
+<tr><td>Poder Judicial condena a Procuradora General del Estado por omisión y rehusamiento de actos funcionales</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/poder-judicial-condena-a-procuradora-general-del-estado-por-omision-y-rehusamiento-de-actos-funcionales-hnews-2051595</td><td>2026-01-28T05:22:00-05:00</td><td>103</td></tr>
+<tr><td>Gobierno de José Jerí aplaza por segunda vez la creación del Plan Nacional de Seguridad Ciudadana</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/26/gobierno-de-jose-jeri-aplaza-por-segunda-vez-la-creacion-del-plan-nacional-de-seguridad-ciudadana-hnews-2100384</td><td>2026-01-28T05:21:00-05:00</td><td>97</td></tr>
+<tr><td>JEE deja fuera de carrera electoral a Edwin Donayre: declaró improcedente su candidatura por caso Gasolinazo</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/jee-deja-fuera-de-carrera-electoral-a-edwin-donayre-declaro-improcedente-su-candidatura-por-caso-gasolinazo-hnews-681021</td><td>2026-01-28T05:19:00-05:00</td><td>108</td></tr>
+<tr><td>“Tío Johnny” Yang pidió al gobierno de Jerí ampliar plazo de concesión de hidroeléctrica</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/26/tio-johnny-yang-pidio-al-gobierno-de-jose-jeri-ampliar-plazo-de-concesion-de-hidroelectrica-zhihua-yang-hidroelectrica-pachachaca-2-hnews-1115504</td><td>2026-01-27T22:40:16-05:00</td><td>88</td></tr>
+<tr><td>Martín Vizcarra seguirá en la cárcel: PJ declaró infundado pedido de suspensión de sentencia</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/martin-vizcarra-seguira-en-la-carcel-pj-declaro-infundado-pedido-de-suspension-de-sentencia-hnews-2132595</td><td>2026-01-27T22:20:08-05:00</td><td>92</td></tr>
+<tr><td>Congreso postergó 26 veces debate de investigación sobre el “Club del Dragón”</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/26/congreso-postergo-26-veces-debate-de-investigacion-sobre-el-club-del-dragon-jose-jeri-zhihua-yang-hector-valer-fuerza-popular-hnews-471224</td><td>2026-01-27T20:32:44-05:00</td><td>77</td></tr>
+<tr><td>José Jerí será interrogado por Tomás Gálvez en Palacio este viernes a las 9:00 de la mañana</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/jose-jeri-sera-interrogado-por-tomas-galvez-en-palacio-este-viernes-a-las-900-de-la-manana-hnews-1378134</td><td>2026-01-27T19:43:37-05:00</td><td>91</td></tr>
+<tr><td>JEE abre proceso sancionador contra Lady Camones y APP por entregar juguetes en campaña electoral</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/jee-abre-proceso-sancionador-contra-lady-camones-y-app-por-entregar-juguetes-en-campana-electoral-hnews-2417391</td><td>2026-01-27T19:36:55-05:00</td><td>97</td></tr>
+<tr><td>Marcha de sacrificio Uyariy: familiares de las víctimas denuncian hostigamiento policial en movilización</td><td>Política</td><td>https://larepublica.pe/politica/2026/01/27/marcha-de-sacrificio-uyariy-familiares-de-las-victimas-denuncian-hostigamiento-policial-en-movilizacion-hnews-2689281</td><td>2026-01-27T19:23:36-05:00</
+  
+      </tbody>
+    </table>
+
   </div>
-
-  <h2 id="descarga">Descarga de datos (CSV)</h2>
-  <ul>
-    <li><a href="data/andina.csv">andina.csv</a></li>
-    <li><a href="data/andina_procesado.csv">andina_procesado.csv</a></li>
-    <li><a href="data/larepublica.csv">larepublica.csv</a></li>
-    <li><a href="data/larepublica_procesado.csv">larepublica_procesado.csv</a></li>
-    <li><a href="data/combinado_procesado.csv">combinado_procesado.csv</a></li>
-    <li><a href="data/top_palabras_andina.csv">top_palabras_andina.csv</a></li>
-    <li><a href="data/top_palabras_larepublica.csv">top_palabras_larepublica.csv</a></li>
-  </ul>
-  <div class="note">
-    ⚠️ Algunos navegadores muestran el CSV como texto. Para descargar: clic derecho → <b>Guardar enlace como…</b>
-  </div>
-
-  <!-- ANDINA -->
-  <h2 id="andina">Andina</h2>
-  <h3>Nube de palabras</h3>
-  <div class="word-cloud">
-    <!-- Ejemplo: usar font-size proporcional a frecuencia -->
-    <span style="font-size:28px;">palabra1</span>
-    <span style="font-size:24px;">palabra2</span>
-    <span style="font-size:18px;">palabra3</span>
-  </div>
-
-  <label>
-    <input type="checkbox" class="toggle-table">
-    Mostrar/Ocultar tabla de titulares Andina
-  </label>
-  <table>
-    <thead>
-      <tr>
-        <th>Titular</th>
-        <th>Momento del día</th>
-        <th>Longitud (palabras)</th>
-        <th>Longitud (caracteres)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Copiar desde andina_procesado.csv -->
-      <tr><td>Titular Andina 1</td><td>Mañana</td><td>8</td><td>45</td></tr>
-      <tr><td>Titular Andina 2</td><td>Tarde</td><td>10</td><td>50</td></tr>
-    </tbody>
-  </table>
-
-  <!-- LA REPUBLICA -->
-  <h2 id="larepublica">La República</h2>
-  <h3>Nube de palabras</h3>
-  <div class="word-cloud">
-    <span style="font-size:26px;">palabraA</span>
-    <span style="font-size:20px;">palabraB</span>
-    <span style="font-size:18px;">palabraC</span>
-  </div>
-
-  <label>
-    <input type="checkbox" class="toggle-table">
-    Mostrar/Ocultar tabla de titulares La República
-  </label>
-  <table>
-    <thead>
-      <tr>
-        <th>Titular</th>
-        <th>Momento del día</th>
-        <th>Longitud (palabras)</th>
-        <th>Longitud (caracteres)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Copiar desde larepublica_procesado.csv -->
-      <tr><td>Titular Repu 1</td><td>Mañana</td><td>9</td><td>48</td></tr>
-      <tr><td>Titular Repu 2</td><td>Tarde</td><td>11</td><td>55</td></tr>
-    </tbody>
-  </table>
-
-</div>
 </body>
 </html>
