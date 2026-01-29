@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarea MediaLab – Análisis Andina vs La República Deportes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root {
+      --bg-color: #000;
+      --text-color: #FFD700;
+      --link-color: #FFA500;
+      --container-bg: #111;
+      --table-head-bg: #222;
+      --table-row-hover: #333;
+      --input-bg: #222;
+      --input-border: #444;
+      --btn-bg: #FFA500;
+      --btn-color: black;
+      --btn-hover: #FFD700;
+    }
+
+    #modoClaro:checked ~ .container {
+      --bg-color: #fff;
+      --text-color: #000;
+      --link-color: #0055aa;
+      --container-bg: #eee;
+      --table-head-bg: #ccc;
+      --table-row-hover: #ddd;
+      --input-bg: #fff;
+      --input-border: #999;
+      --btn-bg: #0055aa;
+      --btn-color: white;
+      --btn-hover: #0077cc;
+    }
+
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-color); color: var(--text-color); margin:0; padding:40px; transition: all 0.3s; }
+    .container { max-width: 1000px; margin:auto; background: var(--container-bg); padding:40px; border-radius:8px; transition: all 0.3s; }
+    h1, h2 { color: var(--text-color); }
+    ul { line-height: 1.8; }
+    a { color: var(--link-color); text-decoration:none; font-weight:500; } a:hover { text-decoration:underline; }
+    table { width:100%; border-collapse: collapse; margin-top:20px; color: var(--text-color); }
+    th, td { padding:10px; border-bottom:1px solid #444; text-align:left; }
+    th { background: var(--table-head-bg); }
+    tr:hover { background-color: var(--table-row-hover); }
+    .note, .index { background: var(--table-head-bg); padding:15px; border-left:4px solid var(--link-color); margin-top:20px; }
+    .index { margin-bottom:30px; }
+    .index ul { list-style:none; padding-left:0; }
+    .index li { margin-bottom:8px; }
+    .btn { background: var(--btn-bg); border:none; color: var(--btn-color); padding:8px 12px; margin-top:10px; cursor:pointer; border-radius:4px; font-weight:bold; transition: all 0.2s; }
+    .btn:hover { background: var(--btn-hover); }
+    .bar-container { margin-top:20px; }
+    .bar { height:30px; background: var(--link-color); text-align:right; padding-right:10px; color:black; line-height:30px; margin-bottom:10px; border-radius:4px; }
+    .word-cloud { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .word-cloud span { display:inline-block; font-weight:bold; color: var(--text-color); }
+    #modoClaro { display:none; }
+  </style>
+</head>
+<body>
+
+<input type="checkbox" id="modoClaro">
+<label for="modoClaro" class="btn">Cambiar modo Claro/Oscuro</label>
+
+<div class="container">
+  <h1>Análisis de titulares: Andina vs La República Deportes</h1>
+
+  <div class="index">
+    <strong>Índice</strong>
+    <ul>
+      <li><a href="#descarga">Descarga de datos (CSV)</a></li>
+      <li><a href="#publicaciones">Publicaciones por momento del día</a></li>
+      <li><a href="#palabras">Top palabras en titulares</a></li>
+      <li><a href="#tabla_interactiva">Tabla interactiva: titulares y longitud</a></li>
+    </ul>
+  </div>
+
+  <h2 id="descarga">Descarga de datos (CSV)</h2>
+  <ul>
+    <li><a href="data/andina_procesado.csv">andina_procesado.csv</a></li>
+    <li><a href="data/larepublica_procesado.csv">larepublica_procesado.csv</a></li>
+    <li><a href="data/top_palabras_titulares.csv">top_palabras_titulares.csv</a></li>
+    <li><a href="data/publicaciones_por_momento_dia.csv">publicaciones_por_momento_dia.csv</a></li>
+  </ul>
+  <div class="note">
+    ⚠️ Nota: algunos navegadores muestran el CSV como texto. Para descargar: clic derecho → <b>Guardar enlace como…</b>
+  </div>
+
+  <h2 id="publicaciones">Publicaciones por momento del día</h2>
+  <div class="bar-container">
+    <!-- Ejemplo estático: copia manual desde CSV -->
+    <div class="bar" style="width:75%;">Noche (15)</div>
+    <div class="bar" style="width:70%;">Tarde (14)</div>
+    <div class="bar" style="width:25%;">Mañana (5)</div>
+    <div class="bar" style="width:15%;">Madrugada (3)</div>
+  </div>
+
+  <h2 id="palabras">Top palabras en titulares</h2>
+  <div class="word-cloud">
+    <!-- Copiar manual desde top_palabras_titulares.csv -->
+    <span style="font-size: 30px;">lima</span>
+    <span style="font-size: 30px;">alianza</span>
+    <span style="font-size: 20px;">2026</span>
+    <span style="font-size: 18px;">peña</span>
+    <span style="font-size: 16px;">noche</span>
+    <span style="font-size: 14px;">denuncia</span>
+    <span style="font-size: 14px;">zambrano</span>
+  </div>
+
+  <h2 id="tabla_interactiva">Tabla interactiva: titulares y longitud</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Titular</th>
+        <th>Medio</th>
+        <th>Momento del día</th>
+        <th>Longitud (palabras)</th>
+        <th>Longitud (caracteres)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Copiar manual desde andina_procesado.csv y larepublica_procesado.csv -->
+      <tr><td>Jugador X logra hazaña en Lima</td><td>Andina</td><td>Tarde</td><td>8</td><td>42</td></tr>
+      <tr><td>Equipo Y derrota a rival histórico</td><td>La República</td><td>Noche</td><td>9</td><td>50</td></tr>
+      <tr><td>Noticia importante del fútbol peruano</td><td>Andina</td><td>Mañana</td><td>7</td><td>48</td></tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
