@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tarea MediaLab – Análisis Andina vs La República Deportes</title>
+  <title>Análisis Andina vs La República</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -13,6 +13,8 @@
       --container-bg: #111;
       --table-head-bg: #222;
       --table-row-hover: #333;
+      --input-bg: #222;
+      --input-border: #444;
       --btn-bg: #FFA500;
       --btn-color: black;
       --btn-hover: #FFD700;
@@ -25,16 +27,19 @@
       --container-bg: #eee;
       --table-head-bg: #ccc;
       --table-row-hover: #ddd;
+      --input-bg: #fff;
+      --input-border: #999;
       --btn-bg: #0055aa;
       --btn-color: white;
       --btn-hover: #0077cc;
     }
 
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg-color); color: var(--text-color); margin:0; padding:40px; transition: all 0.3s; }
+    body { font-family: system-ui, sans-serif; background: var(--bg-color); color: var(--text-color); margin:0; padding:40px; transition: all 0.3s; }
     .container { max-width: 1000px; margin:auto; background: var(--container-bg); padding:40px; border-radius:8px; transition: all 0.3s; }
     h1, h2 { color: var(--text-color); }
-    ul { line-height: 1.8; }
-    a { color: var(--link-color); text-decoration:none; font-weight:500; } a:hover { text-decoration:underline; }
+    ul { line-height:1.8; }
+    a { color: var(--link-color); text-decoration:none; font-weight:500; }
+    a:hover { text-decoration:underline; }
     table { width:100%; border-collapse: collapse; margin-top:20px; color: var(--text-color); }
     th, td { padding:10px; border-bottom:1px solid #444; text-align:left; }
     th { background: var(--table-head-bg); }
@@ -58,8 +63,7 @@
 <label for="modoClaro" class="btn">Cambiar modo Claro/Oscuro</label>
 
 <div class="container">
-
-  <h1>Análisis de titulares: Andina vs La República Deportes</h1>
+  <h1>Análisis de titulares: Andina vs La República</h1>
 
   <div class="index">
     <strong>Índice</strong>
@@ -68,7 +72,6 @@
       <li><a href="#publicaciones">Publicaciones por momento del día</a></li>
       <li><a href="#palabras">Top palabras en titulares</a></li>
       <li><a href="#tabla_interactiva">Tabla de titulares</a></li>
-      <li><a href="#resumen">Resumen del proyecto</a></li>
     </ul>
   </div>
 
@@ -80,33 +83,35 @@
     <li><a href="data/top_palabras_andina.csv">top_palabras_andina.csv</a></li>
     <li><a href="data/top_palabras_larepublica.csv">top_palabras_larepublica.csv</a></li>
   </ul>
+
   <div class="note">
     ⚠️ Algunos navegadores muestran el CSV como texto. Para descargar: clic derecho → <b>Guardar enlace como…</b>
   </div>
 
   <h2 id="publicaciones">Publicaciones por momento del día</h2>
   <div class="bar-container">
-    <!-- Ejemplo estático basado en combinado_procesado.csv -->
-    <div class="bar" style="width:60%;">Andina - Mañana (12)</div>
-    <div class="bar" style="width:50%;">Andina - Tarde (10)</div>
-    <div class="bar" style="width:65%;">La República - Noche (13)</div>
-    <div class="bar" style="width:30%;">La República - Madrugada (6)</div>
+    <!-- Ejemplo estático: debes copiar los valores reales de tu CSV combinado_procesado.csv o calcular manual -->
+    <div class="bar" style="width:40%;">Mañana (X)</div>
+    <div class="bar" style="width:60%;">Tarde (Y)</div>
+    <div class="bar" style="width:30%;">Noche (Z)</div>
+    <div class="bar" style="width:10%;">Madrugada (W)</div>
   </div>
 
   <h2 id="palabras">Top palabras en titulares</h2>
+  <h3>Andina</h3>
   <div class="word-cloud">
-    <!-- Ejemplo estático basado en top_palabras CSV -->
-    <strong>Andina:</strong>
-    <span style="font-size:28px;">lima</span>
-    <span style="font-size:24px;">fútbol</span>
-    <span style="font-size:20px;">peña</span>
-    <span style="font-size:18px;">jugador</span>
+    <!-- Copiar desde top_palabras_andina.csv -->
+    <span style="font-size:24px;">palabra1</span>
+    <span style="font-size:20px;">palabra2</span>
+    <span style="font-size:18px;">palabra3</span>
+  </div>
 
-    <strong>La República:</strong>
-    <span style="font-size:30px;">alianza</span>
-    <span style="font-size:26px;">zambrano</span>
-    <span style="font-size:22px;">partido</span>
-    <span style="font-size:18px;">noche</span>
+  <h3>La República</h3>
+  <div class="word-cloud">
+    <!-- Copiar desde top_palabras_larepublica.csv -->
+    <span style="font-size:24px;">palabraA</span>
+    <span style="font-size:20px;">palabraB</span>
+    <span style="font-size:18px;">palabraC</span>
   </div>
 
   <h2 id="tabla_interactiva">Tabla de titulares</h2>
@@ -121,38 +126,12 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Ejemplo estático basado en CSV procesados -->
-      <tr><td>Jugador X logra hazaña en Lima</td><td>Andina</td><td>Tarde</td><td>8</td><td>42</td></tr>
-      <tr><td>Equipo Y derrota a rival histórico</td><td>La República</td><td>Noche</td><td>9</td><td>50</td></tr>
-      <tr><td>Noticia importante del fútbol peruano</td><td>Andina</td><td>Mañana</td><td>7</td><td>48</td></tr>
-      <tr><td>Partido amistoso genera expectativa</td><td>La República</td><td>Noche</td><td>6</td><td>44</td></tr>
+      <!-- Copiar manualmente desde andina_procesado.csv y larepublica_procesado.csv -->
+      <tr><td>Ejemplo titular Andina 1</td><td>Andina</td><td>Mañana</td><td>8</td><td>42</td></tr>
+      <tr><td>Ejemplo titular La República 1</td><td>La República</td><td>Tarde</td><td>10</td><td>55</td></tr>
+      <tr><td>Ejemplo titular Andina 2</td><td>Andina</td><td>Noche</td><td>7</td><td>39</td></tr>
     </tbody>
   </table>
-
-  <h2 id="resumen">Resumen del proyecto</h2>
-  <ul>
-    <li><strong>Descripción:</strong> Análisis comparativo de titulares entre Andina y La República Deportes.</li>
-    <li><strong>Pregunta central:</strong> ¿Existen diferencias en frecuencia, momento del día y palabras clave entre ambos medios?</li>
-    <li><strong>Fuente de datos:</strong> CSV procesados con Python a partir de los medios Andina y La República.</li>
-    <li><strong>Metodología:</strong>
-      <ol>
-        <li>Importación de CSV en Python.</li>
-        <li>Limpieza y tokenización de titulares.</li>
-        <li>Cálculo de longitud de titulares y momento de publicación.</li>
-        <li>Generación de CSV procesados y combinados.</li>
-        <li>Extracción de top palabras por medio.</li>
-        <li>Visualización en HTML: barras, nube de palabras y tabla.</li>
-      </ol>
-    </li>
-    <li><strong>Principales hallazgos:</strong>
-      <ul>
-        <li>Andina publica más temprano (mañana/tarde); La República más de noche.</li>
-        <li>Palabras frecuentes reflejan enfoque de cada medio: fútbol local vs nombres de jugadores.</li>
-        <li>Longitud promedio de titulares similar entre medios.</li>
-        <li>Diferencias de cobertura por tema según medio.</li>
-      </ul>
-    </li>
-  </ul>
 
 </div>
 </body>
