@@ -70,4 +70,4 @@ Todos los archivos se encuentran en la carpeta `data` del repositorio.
 ---
 
 ### Autor
-Proyecto desarrollado por el laboratorio MediaLab, usando Python y HTML para procesamiento y visualización de datos.
+Proyecto desarrollado por Carlos Reyes para el curso de Extracción y Procesamiento de Datos, ofrecido por el MediaLab, usando Python y HTML para procesamiento y visualización de datos.
