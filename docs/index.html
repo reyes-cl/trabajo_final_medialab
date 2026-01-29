@@ -62,6 +62,7 @@
 <label for="modoClaro" class="btn">Cambiar modo Claro/Oscuro</label>
 
 <div class="container">
+
   <h1>Análisis de titulares: Andina vs La República Deportes</h1>
 
   <div class="index">
@@ -71,6 +72,7 @@
       <li><a href="#publicaciones">Publicaciones por momento del día</a></li>
       <li><a href="#palabras">Top palabras en titulares</a></li>
       <li><a href="#tabla_interactiva">Tabla interactiva: titulares y longitud</a></li>
+      <li><a href="#readme">Resumen del proyecto</a></li>
     </ul>
   </div>
 
@@ -78,8 +80,9 @@
   <ul>
     <li><a href="data/andina_procesado.csv">andina_procesado.csv</a></li>
     <li><a href="data/larepublica_procesado.csv">larepublica_procesado.csv</a></li>
-    <li><a href="data/top_palabras_titulares.csv">top_palabras_titulares.csv</a></li>
-    <li><a href="data/publicaciones_por_momento_dia.csv">publicaciones_por_momento_dia.csv</a></li>
+    <li><a href="data/top_palabras_andina.csv">top_palabras_andina.csv</a></li>
+    <li><a href="data/top_palabras_larepublica.csv">top_palabras_larepublica.csv</a></li>
+    <li><a href="data/combinado_procesado.csv">combinado_procesado.csv</a></li>
   </ul>
   <div class="note">
     ⚠️ Nota: algunos navegadores muestran el CSV como texto. Para descargar: clic derecho → <b>Guardar enlace como…</b>
@@ -87,7 +90,7 @@
 
   <h2 id="publicaciones">Publicaciones por momento del día</h2>
   <div class="bar-container">
-    <!-- Ejemplo estático: copia manual desde CSV -->
+    <!-- Copiar manual desde CSV combinado o cada medio -->
     <div class="bar" style="width:75%;">Noche (15)</div>
     <div class="bar" style="width:70%;">Tarde (14)</div>
     <div class="bar" style="width:25%;">Mañana (5)</div>
@@ -96,14 +99,15 @@
 
   <h2 id="palabras">Top palabras en titulares</h2>
   <div class="word-cloud">
-    <!-- Copiar manual desde top_palabras_titulares.csv -->
-    <span style="font-size: 30px;">lima</span>
-    <span style="font-size: 30px;">alianza</span>
-    <span style="font-size: 20px;">2026</span>
-    <span style="font-size: 18px;">peña</span>
-    <span style="font-size: 16px;">noche</span>
-    <span style="font-size: 14px;">denuncia</span>
-    <span style="font-size: 14px;">zambrano</span>
+    <!-- Copiar manual desde top_palabras_andina.csv y top_palabras_larepublica.csv -->
+    <span style="font-size:30px;">lima</span>
+    <span style="font-size:28px;">alianza</span>
+    <span style="font-size:24px;">zambrano</span>
+    <span style="font-size:20px;">peña</span>
+    <span style="font-size:18px;">fútbol</span>
+    <span style="font-size:16px;">partido</span>
+    <span style="font-size:14px;">messi</span>
+    <span style="font-size:14px;">amistoso</span>
   </div>
 
   <h2 id="tabla_interactiva">Tabla interactiva: titulares y longitud</h2>
@@ -124,6 +128,31 @@
       <tr><td>Noticia importante del fútbol peruano</td><td>Andina</td><td>Mañana</td><td>7</td><td>48</td></tr>
     </tbody>
   </table>
+
+  <h2 id="readme">Resumen del proyecto</h2>
+  <ul>
+    <li><strong>Descripción:</strong> Proyecto de análisis de titulares de noticias de medios peruanos Andina y La República Deportes.</li>
+    <li><strong>Pregunta central:</strong> ¿Existen diferencias en la cobertura de noticias entre Andina y La República Deportes en términos de frecuencia, momento del día y palabras clave?</li>
+    <li><strong>Fuente de datos:</strong> CSV de titulares de Andina y La República Deportes recopilados manualmente y procesados con Python.</li>
+    <li><strong>Metodología:</strong>
+      <ol>
+        <li>Importación de CSV en Python.</li>
+        <li>Procesamiento de titulares: limpieza, tokenización y conteo de palabras.</li>
+        <li>Cálculo de longitud de titulares y momento de publicación.</li>
+        <li>Generación de CSV procesados y combinados.</li>
+        <li>Extracción de top palabras por medio.</li>
+        <li>Visualización en HTML: tablas, nube de palabras y barras de momento del día.</li>
+      </ol>
+    </li>
+    <li><strong>Principales hallazgos:</strong>
+      <ul>
+        <li>Andina publica más en la mañana y tarde, mientras que La República tiende a publicar más de noche.</li>
+        <li>Palabras frecuentes: "lima", "alianza", "zambrano", "peña", "fútbol".</li>
+        <li>La longitud promedio de titulares es similar entre ambos medios.</li>
+        <li>La cobertura de ciertos temas (ej. fútbol local) aparece con distinta frecuencia según el medio.</li>
+      </ul>
+    </li>
+  </ul>
 
 </div>
 </body>
