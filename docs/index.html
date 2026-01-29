@@ -68,6 +68,52 @@
     .btn:hover {
       background: #2a2aff;
     }
+
+    /* Modo oscuro automático */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #121212;
+        color: #eee;
+      }
+
+      .container {
+        background: #1e1e1e;
+        color: #eee;
+      }
+
+      table th {
+        background: #2c2c2c;
+        color: #fff;
+      }
+
+      table td {
+        border-bottom: 1px solid #444;
+        color: #ddd;
+      }
+
+      .btn {
+        background: #8888ff;
+        color: #222;
+      }
+
+      .btn:hover {
+        background: #5555ff;
+      }
+    }
+
+    .analysis {
+      margin-top: 40px;
+      background: #f0f8ff;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .analysis {
+        background: #2a2a3a;
+        color: #eee;
+      }
+    }
   </style>
 
   <script>
@@ -77,7 +123,7 @@
     }
   </script>
 </head>
-
+  
 <body>
   <div class="container">
     <h1>Análisis de titulares: Andina vs La República</h1>
@@ -204,7 +250,29 @@
   
       </tbody>
     </table>
+  <div class="analysis">
+      <h2>Comparativa de titulares más largos</h2>
+      <p><strong>Andina:</strong></p>
+      <ol>
+        <li>Ministro de Justicia: “No existen fronteras que protejan a quienes atentan contra la paz" – 89 caracteres</li>
+        <li>Ernesto Álvarez: estado de emergencia está dando resultados y tiene que ampliarse en Lima – 89 caracteres</li>
+        <li>Presidente del Consejo de Ministros resalta solidez del Gabinete y descarta alejamiento – 87 caracteres</li>
+      </ol>
+      <p><strong>La República:</strong></p>
+      <ol>
+        <li>Carlín sobre respaldo a López Aliaga: “Lima vive en una burbuja y aún no supera el trauma de haber tenido a un serrano como presidente” – 135 caracteres</li>
+        <li>Mientras Oxenford anuncia derrota de Keiko, Cornejo ve a López-Chau como el "único que ha levantado cabeza" dentro de la izquierda – 130 caracteres</li>
+        <li>JNJ apunta contra el Poder Judicial: da 5 días a Janet Tello para que responda por supuesta omisión en su declaración jurada – 124 caracteres</li>
+      </ol>
 
+      <h2>Respuesta a la pregunta de investigación</h2>
+      <p>
+        Andina prioriza <strong>titulares concisos y neutros</strong>, centrados en hechos y decisiones oficiales, mientras que La República tiende a <strong>titulares más largos y narrativos</strong>, combinando hechos con contexto, análisis y opiniones. Esto refleja que Andina sigue un estilo institucional, mientras que La República tiene un enfoque más político y opinativo.
+      </p>
+    </div>
+
+
+    
   </div>
 </body>
 </html>
