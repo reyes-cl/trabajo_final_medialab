@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Análisis de titulares: Andina vs La República</title>
+  <title>MediaLab – Análisis Andina vs La República</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -13,11 +13,12 @@
       --container-bg: #111;
       --table-head-bg: #222;
       --table-row-hover: #333;
+      --input-bg: #222;
+      --input-border: #444;
       --btn-bg: #FFA500;
       --btn-color: black;
       --btn-hover: #FFD700;
     }
-
     #modoClaro:checked ~ .container {
       --bg-color: #fff;
       --text-color: #000;
@@ -25,6 +26,8 @@
       --container-bg: #eee;
       --table-head-bg: #ccc;
       --table-row-hover: #ddd;
+      --input-bg: #fff;
+      --input-border: #999;
       --btn-bg: #0055aa;
       --btn-color: white;
       --btn-hover: #0077cc;
@@ -45,7 +48,14 @@
     .index li { margin-bottom:8px; }
     .btn { background: var(--btn-bg); border:none; color: var(--btn-color); padding:8px 12px; margin-top:10px; cursor:pointer; border-radius:4px; font-weight:bold; transition: all 0.2s; }
     .btn:hover { background: var(--btn-hover); }
-    #modoClaro { display:none; }
+
+    /* Mostrar/Ocultar tablas solo con CSS */
+    input[type=checkbox].toggle-table { display:none; }
+    input[type=checkbox].toggle-table:checked + table { display: table; }
+    input[type=checkbox].toggle-table + table { display: none; margin-top:10px; }
+
+    .word-cloud { display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+    .word-cloud span { font-weight:bold; color: var(--text-color); }
   </style>
 </head>
 <body>
@@ -59,12 +69,40 @@
   <div class="index">
     <strong>Índice</strong>
     <ul>
-      <li><a href="#andina">Titulares Andina</a></li>
-      <li><a href="#larepublica">Titulares La República</a></li>
+      <li><a href="#descarga">Descarga de datos (CSV)</a></li>
+      <li><a href="#andina">Andina</a></li>
+      <li><a href="#larepublica">La República</a></li>
     </ul>
   </div>
 
-  <h2 id="andina">Tabla de titulares - Andina</h2>
+  <h2 id="descarga">Descarga de datos (CSV)</h2>
+  <ul>
+    <li><a href="data/andina.csv">andina.csv</a></li>
+    <li><a href="data/andina_procesado.csv">andina_procesado.csv</a></li>
+    <li><a href="data/larepublica.csv">larepublica.csv</a></li>
+    <li><a href="data/larepublica_procesado.csv">larepublica_procesado.csv</a></li>
+    <li><a href="data/combinado_procesado.csv">combinado_procesado.csv</a></li>
+    <li><a href="data/top_palabras_andina.csv">top_palabras_andina.csv</a></li>
+    <li><a href="data/top_palabras_larepublica.csv">top_palabras_larepublica.csv</a></li>
+  </ul>
+  <div class="note">
+    ⚠️ Algunos navegadores muestran el CSV como texto. Para descargar: clic derecho → <b>Guardar enlace como…</b>
+  </div>
+
+  <!-- ANDINA -->
+  <h2 id="andina">Andina</h2>
+  <h3>Nube de palabras</h3>
+  <div class="word-cloud">
+    <!-- Ejemplo: usar font-size proporcional a frecuencia -->
+    <span style="font-size:28px;">palabra1</span>
+    <span style="font-size:24px;">palabra2</span>
+    <span style="font-size:18px;">palabra3</span>
+  </div>
+
+  <label>
+    <input type="checkbox" class="toggle-table">
+    Mostrar/Ocultar tabla de titulares Andina
+  </label>
   <table>
     <thead>
       <tr>
@@ -76,13 +114,24 @@
     </thead>
     <tbody>
       <!-- Copiar desde andina_procesado.csv -->
-      <tr><td>Confirman nueva medida económica</td><td>Mañana</td><td>6</td><td>38</td></tr>
-      <tr><td>Reporte de salud pública en zonas rurales</td><td>Noche</td><td>6</td><td>42</td></tr>
-      <tr><td>Informe sobre desarrollo regional</td><td>Tarde</td><td>5</td><td>35</td></tr>
+      <tr><td>Titular Andina 1</td><td>Mañana</td><td>8</td><td>45</td></tr>
+      <tr><td>Titular Andina 2</td><td>Tarde</td><td>10</td><td>50</td></tr>
     </tbody>
   </table>
 
-  <h2 id="larepublica">Tabla de titulares - La República</h2>
+  <!-- LA REPUBLICA -->
+  <h2 id="larepublica">La República</h2>
+  <h3>Nube de palabras</h3>
+  <div class="word-cloud">
+    <span style="font-size:26px;">palabraA</span>
+    <span style="font-size:20px;">palabraB</span>
+    <span style="font-size:18px;">palabraC</span>
+  </div>
+
+  <label>
+    <input type="checkbox" class="toggle-table">
+    Mostrar/Ocultar tabla de titulares La República
+  </label>
   <table>
     <thead>
       <tr>
@@ -94,9 +143,8 @@
     </thead>
     <tbody>
       <!-- Copiar desde larepublica_procesado.csv -->
-      <tr><td>Informe sobre educación y cultura regional</td><td>Tarde</td><td>7</td><td>45</td></tr>
-      <tr><td>Actividad cultural en Lima y provincias</td><td>Tarde</td><td>6</td><td>39</td></tr>
-      <tr><td>Reporte económico del gobierno central</td><td>Mañana</td><td>6</td><td>41</td></tr>
+      <tr><td>Titular Repu 1</td><td>Mañana</td><td>9</td><td>48</td></tr>
+      <tr><td>Titular Repu 2</td><td>Tarde</td><td>11</td><td>55</td></tr>
     </tbody>
   </table>
 
