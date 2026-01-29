@@ -12,6 +12,7 @@
       margin: 0;
       padding: 40px;
       color: #222;
+      transition: background 0.3s, color 0.3s;
     }
 
     .container {
@@ -20,6 +21,7 @@
       background: white;
       padding: 40px;
       border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
     }
 
     h1 { margin-top: 0; }
@@ -42,6 +44,7 @@
       border-collapse: collapse;
       margin-top: 20px;
       display: none; /* Oculta por defecto */
+      transition: background 0.3s, color 0.3s;
     }
 
     th, td {
@@ -63,42 +66,11 @@
       cursor: pointer;
       border-radius: 4px;
       font-weight: bold;
+      transition: background 0.3s, color 0.3s;
     }
 
     .btn:hover {
       background: #2a2aff;
-    }
-
-    /* Modo oscuro automático */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #121212;
-        color: #eee;
-      }
-
-      .container {
-        background: #1e1e1e;
-        color: #eee;
-      }
-
-      table th {
-        background: #2c2c2c;
-        color: #fff;
-      }
-
-      table td {
-        border-bottom: 1px solid #444;
-        color: #ddd;
-      }
-
-      .btn {
-        background: #8888ff;
-        color: #222;
-      }
-
-      .btn:hover {
-        background: #5555ff;
-      }
     }
 
     .analysis {
@@ -106,13 +78,42 @@
       background: #f0f8ff;
       padding: 20px;
       border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
     }
 
-    @media (prefers-color-scheme: dark) {
-      .analysis {
-        background: #2a2a3a;
-        color: #eee;
-      }
+    /* Modo oscuro */
+    .dark-mode {
+      background: #121212;
+      color: #eee;
+    }
+
+    .dark-mode .container {
+      background: #1e1e1e;
+      color: #eee;
+    }
+
+    .dark-mode table th {
+      background: #2c2c2c;
+      color: #fff;
+    }
+
+    .dark-mode table td {
+      border-bottom: 1px solid #444;
+      color: #ddd;
+    }
+
+    .dark-mode .btn {
+      background: #8888ff;
+      color: #222;
+    }
+
+    .dark-mode .btn:hover {
+      background: #5555ff;
+    }
+
+    .dark-mode .analysis {
+      background: #2a2a3a;
+      color: #eee;
     }
   </style>
 
@@ -121,12 +122,18 @@
       const table = document.getElementById(id);
       table.style.display = table.style.display === 'table' ? 'none' : 'table';
     }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
   </script>
 </head>
   
 <body>
   <div class="container">
     <h1>Análisis de titulares: Andina vs La República</h1>
+
+    <button class="btn" onclick="toggleDarkMode()">Activar/Desactivar Modo Oscuro</button>
 
     <!-- Nube de palabras Andina -->
     <h2>Nube de palabras – Andina</h2>
@@ -251,23 +258,25 @@
       </tbody>
     </table>
   <div class="analysis">
-      <h2>Comparativa de titulares más largos</h2>
-      <p><strong>Andina:</strong></p>
-      <ol>
-        <li>Ministro de Justicia: “No existen fronteras que protejan a quienes atentan contra la paz" – 89 caracteres</li>
-        <li>Ernesto Álvarez: estado de emergencia está dando resultados y tiene que ampliarse en Lima – 89 caracteres</li>
-        <li>Presidente del Consejo de Ministros resalta solidez del Gabinete y descarta alejamiento – 87 caracteres</li>
-      </ol>
-      <p><strong>La República:</strong></p>
-      <ol>
-        <li>Carlín sobre respaldo a López Aliaga: “Lima vive en una burbuja y aún no supera el trauma de haber tenido a un serrano como presidente” – 135 caracteres</li>
-        <li>Mientras Oxenford anuncia derrota de Keiko, Cornejo ve a López-Chau como el "único que ha levantado cabeza" dentro de la izquierda – 130 caracteres</li>
-        <li>JNJ apunta contra el Poder Judicial: da 5 días a Janet Tello para que responda por supuesta omisión en su declaración jurada – 124 caracteres</li>
-      </ol>
 
-      <h2>Respuesta a la pregunta de investigación</h2>
+    
+      <h2>Respuesta detallada a la pregunta de investigación</h2>
       <p>
-        Andina prioriza <strong>titulares concisos y neutros</strong>, centrados en hechos y decisiones oficiales, mientras que La República tiende a <strong>titulares más largos y narrativos</strong>, combinando hechos con contexto, análisis y opiniones. Esto refleja que Andina sigue un estilo institucional, mientras que La República tiene un enfoque más político y opinativo.
+        Al analizar los titulares de Andina y La República, se observa una diferencia clara en <strong>enfoque y estilo editorial</strong>. Andina se caracteriza por titulares más <strong>concisos, neutros y directos</strong>, enfocados en la transmisión de hechos, cifras y decisiones oficiales. Su lenguaje es institucional y busca informar de manera rápida y objetiva, evitando juicios de valor o elementos narrativos extensos. Ejemplo: “PJ dispone 36 meses de prisión preventiva para Erick Moreno, alias 'El Monstruo'” – es corto, preciso y directo.
+      </p>
+      <p>
+        Por otro lado, La República tiende a publicar titulares más <strong>largos, descriptivos y narrativos</strong>, combinando hechos con contexto político, interpretaciones y, en algunos casos, opiniones implícitas o explícitas. Sus titulares incluyen referencias a actores políticos, emociones y situaciones complejas, lo que permite al lector entender el trasfondo de la noticia sin necesidad de leer todo el artículo. Ejemplo: “Carlín sobre respaldo a López Aliaga: ‘Lima vive en una burbuja y aún no supera el trauma de haber tenido a un serrano como presidente’” – mucho más largo y analítico.
+      </p>
+      <p>
+        Esta diferencia refleja los <strong>objetivos editoriales</strong> de cada medio. Andina actúa como agencia estatal que busca informar de manera rápida y objetiva, útil para medios secundarios que reproducen sus noticias. La República tiene un enfoque más político y opinativo, buscando generar debate y contextualizar los hechos para su audiencia, lo que explica la mayor longitud de los titulares y la inclusión de juicios de valor o detalles narrativos. En términos de investigación, podemos concluir que:
+      </p>
+      <ul>
+        <li>Andina prioriza claridad, brevedad y neutralidad.</li>
+        <li>La República prioriza contexto, interpretación y narrativa política.</li>
+        <li>Los lectores de Andina reciben información directa; los de La República, un análisis más profundo y crítico.</li>
+      </ul>
+      <p>
+        Este contraste es útil para estudios de comunicación política, periodismo comparado y percepción de noticias en medios peruanos: muestra cómo el mismo hecho puede ser presentado de manera muy distinta según el enfoque editorial y el público objetivo. En resumen, la principal diferencia no es solo estilística, sino también estratégica y funcional.
       </p>
     </div>
 
